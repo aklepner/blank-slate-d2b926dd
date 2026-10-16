@@ -77,11 +77,22 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "AI Studio App" },
-      { name: "description", content: "AI Studio Generated Project" },
-      { name: "author", content: "AI Studio" },
-      { property: "og:title", content: "AI Studio App" },
-      { property: "og:description", content: "AI Studio Generated Project" },
+      { title: "DSO Pricing — Group Purchasing Power for Dental Practices" },
+      {
+        name: "description",
+        content:
+          "Leverage DSO-level pricing, lower overhead, and access premier dental supplier networks without selling your practice.",
+      },
+      { name: "author", content: "DSO Pricing" },
+      {
+        property: "og:title",
+        content: "DSO Pricing — Group Purchasing Power for Dental Practices",
+      },
+      {
+        property: "og:description",
+        content:
+          "Leverage DSO-level pricing, lower overhead, and access premier dental supplier networks without selling your practice.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
