@@ -15,6 +15,7 @@ import { Route as CalculatorRouteImport } from './routes/calculator'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as ProfitabilityCallRouteImport } from './routes/profitability-call'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BuiltDifferentIndexRouteImport } from './routes/built-different.index'
@@ -50,6 +51,11 @@ const PrivacyRoute = PrivacyRouteImport.update({
   path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProfitabilityCallRoute = ProfitabilityCallRouteImport.update({
+  id: '/profitability-call',
+  path: '/profitability-call',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
@@ -78,6 +84,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
+  '/profitability-call': typeof ProfitabilityCallRoute
   '/terms': typeof TermsRoute
   '/built-different/vendors': typeof BuiltDifferentVendorsRoute
   '/blog/': typeof BlogIndexRoute
@@ -89,6 +96,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
+  '/profitability-call': typeof ProfitabilityCallRoute
   '/terms': typeof TermsRoute
   '/built-different/vendors': typeof BuiltDifferentVendorsRoute
   '/blog': typeof BlogIndexRoute
@@ -102,6 +110,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
+  '/profitability-call': typeof ProfitabilityCallRoute
   '/terms': typeof TermsRoute
   '/built-different/vendors': typeof BuiltDifferentVendorsRoute
   '/blog/': typeof BlogIndexRoute
@@ -116,6 +125,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/pricing'
     | '/privacy'
+    | '/profitability-call'
     | '/terms'
     | '/built-different/vendors'
     | '/blog/'
@@ -127,6 +137,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/pricing'
     | '/privacy'
+    | '/profitability-call'
     | '/terms'
     | '/built-different/vendors'
     | '/blog'
@@ -139,6 +150,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/pricing'
     | '/privacy'
+    | '/profitability-call'
     | '/terms'
     | '/built-different/vendors'
     | '/blog/'
@@ -152,6 +164,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   PricingRoute: typeof PricingRoute
   PrivacyRoute: typeof PrivacyRoute
+  ProfitabilityCallRoute: typeof ProfitabilityCallRoute
   TermsRoute: typeof TermsRoute
   BlogIndexRoute: typeof BlogIndexRoute
 }
@@ -198,6 +211,13 @@ declare module '@tanstack/react-router' {
       path: '/privacy'
       fullPath: '/privacy'
       preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profitability-call': {
+      id: '/profitability-call'
+      path: '/profitability-call'
+      fullPath: '/profitability-call'
+      preLoaderRoute: typeof ProfitabilityCallRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/terms': {
@@ -252,6 +272,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   PricingRoute: PricingRoute,
   PrivacyRoute: PrivacyRoute,
+  ProfitabilityCallRoute: ProfitabilityCallRoute,
   TermsRoute: TermsRoute,
   BlogIndexRoute: BlogIndexRoute,
 }
