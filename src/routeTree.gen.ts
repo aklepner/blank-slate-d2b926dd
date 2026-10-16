@@ -10,33 +10,150 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BuiltDifferentRouteImport } from './routes/built-different'
+import { Route as CalculatorRouteImport } from './routes/calculator'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as PricingRouteImport } from './routes/pricing'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as TermsRouteImport } from './routes/terms'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
+import { Route as BuiltDifferentIndexRouteImport } from './routes/built-different.index'
+import { Route as BuiltDifferentVendorsRouteImport } from './routes/built-different.vendors'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BuiltDifferentRoute = BuiltDifferentRouteImport.update({
+  id: '/built-different',
+  path: '/built-different',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CalculatorRoute = CalculatorRouteImport.update({
+  id: '/calculator',
+  path: '/calculator',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PricingRoute = PricingRouteImport.update({
+  id: '/pricing',
+  path: '/pricing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BuiltDifferentIndexRoute = BuiltDifferentIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => BuiltDifferentRoute,
+} as any)
+const BuiltDifferentVendorsRoute = BuiltDifferentVendorsRouteImport.update({
+  id: '/vendors',
+  path: '/vendors',
+  getParentRoute: () => BuiltDifferentRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/built-different': typeof BuiltDifferentRouteWithChildren
+  '/calculator': typeof CalculatorRoute
+  '/contact': typeof ContactRoute
+  '/pricing': typeof PricingRoute
+  '/privacy': typeof PrivacyRoute
+  '/terms': typeof TermsRoute
+  '/built-different/vendors': typeof BuiltDifferentVendorsRoute
+  '/blog/': typeof BlogIndexRoute
+  '/built-different/': typeof BuiltDifferentIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/calculator': typeof CalculatorRoute
+  '/contact': typeof ContactRoute
+  '/pricing': typeof PricingRoute
+  '/privacy': typeof PrivacyRoute
+  '/terms': typeof TermsRoute
+  '/built-different/vendors': typeof BuiltDifferentVendorsRoute
+  '/blog': typeof BlogIndexRoute
+  '/built-different': typeof BuiltDifferentIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/built-different': typeof BuiltDifferentRouteWithChildren
+  '/calculator': typeof CalculatorRoute
+  '/contact': typeof ContactRoute
+  '/pricing': typeof PricingRoute
+  '/privacy': typeof PrivacyRoute
+  '/terms': typeof TermsRoute
+  '/built-different/vendors': typeof BuiltDifferentVendorsRoute
+  '/blog/': typeof BlogIndexRoute
+  '/built-different/': typeof BuiltDifferentIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/built-different'
+    | '/calculator'
+    | '/contact'
+    | '/pricing'
+    | '/privacy'
+    | '/terms'
+    | '/built-different/vendors'
+    | '/blog/'
+    | '/built-different/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/calculator'
+    | '/contact'
+    | '/pricing'
+    | '/privacy'
+    | '/terms'
+    | '/built-different/vendors'
+    | '/blog'
+    | '/built-different'
+  id:
+    | '__root__'
+    | '/'
+    | '/built-different'
+    | '/calculator'
+    | '/contact'
+    | '/pricing'
+    | '/privacy'
+    | '/terms'
+    | '/built-different/vendors'
+    | '/blog/'
+    | '/built-different/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BuiltDifferentRoute: typeof BuiltDifferentRouteWithChildren
+  CalculatorRoute: typeof CalculatorRoute
+  ContactRoute: typeof ContactRoute
+  PricingRoute: typeof PricingRoute
+  PrivacyRoute: typeof PrivacyRoute
+  TermsRoute: typeof TermsRoute
+  BlogIndexRoute: typeof BlogIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +165,95 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/built-different': {
+      id: '/built-different'
+      path: '/built-different'
+      fullPath: '/built-different'
+      preLoaderRoute: typeof BuiltDifferentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/calculator': {
+      id: '/calculator'
+      path: '/calculator'
+      fullPath: '/calculator'
+      preLoaderRoute: typeof CalculatorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pricing': {
+      id: '/pricing'
+      path: '/pricing'
+      fullPath: '/pricing'
+      preLoaderRoute: typeof PricingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/built-different/': {
+      id: '/built-different/'
+      path: '/'
+      fullPath: '/built-different/'
+      preLoaderRoute: typeof BuiltDifferentIndexRouteImport
+      parentRoute: typeof BuiltDifferentRoute
+    }
+    '/built-different/vendors': {
+      id: '/built-different/vendors'
+      path: '/vendors'
+      fullPath: '/built-different/vendors'
+      preLoaderRoute: typeof BuiltDifferentVendorsRouteImport
+      parentRoute: typeof BuiltDifferentRoute
+    }
   }
 }
 
+interface BuiltDifferentRouteChildren {
+  BuiltDifferentVendorsRoute: typeof BuiltDifferentVendorsRoute
+  BuiltDifferentIndexRoute: typeof BuiltDifferentIndexRoute
+}
+
+const BuiltDifferentRouteChildren: BuiltDifferentRouteChildren = {
+  BuiltDifferentVendorsRoute: BuiltDifferentVendorsRoute,
+  BuiltDifferentIndexRoute: BuiltDifferentIndexRoute,
+}
+
+const BuiltDifferentRouteWithChildren = BuiltDifferentRoute._addFileChildren(
+  BuiltDifferentRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BuiltDifferentRoute: BuiltDifferentRouteWithChildren,
+  CalculatorRoute: CalculatorRoute,
+  ContactRoute: ContactRoute,
+  PricingRoute: PricingRoute,
+  PrivacyRoute: PrivacyRoute,
+  TermsRoute: TermsRoute,
+  BlogIndexRoute: BlogIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
