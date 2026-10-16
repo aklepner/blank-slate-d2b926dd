@@ -1,0 +1,2 @@
+- [Deployment secret staleness](deployment-secret-staleness.md) — live builds can bake in stale secret values; verify by grepping the served bundle and normalize config at runtime.
+- [Public vendor access](public-vendor-access.md) — Supabase uses column-level public grants; preserve member-data restrictions when fixing vendor queries.
