@@ -47,12 +47,19 @@ export function Navbar() {
     return () => document.removeEventListener("mousedown", handleClick);
   }, []);
 
-  const isHowItWorksActive = pathname === "/built-different" || pathname.startsWith("/built-different/");
+  const isHowItWorksActive =
+    pathname === "/built-different" || pathname.startsWith("/built-different/");
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-black" style={{ borderBottom: `2px solid ${ORANGE}` }}>
+    <header
+      className="fixed top-0 left-0 right-0 z-50 bg-black"
+      style={{ borderBottom: `2px solid ${ORANGE}` }}
+    >
       {/* DESKTOP */}
-      <div className="hidden md:grid max-w-6xl mx-auto px-6 h-28" style={{ gridTemplateColumns: "1fr auto 1fr" }}>
+      <div
+        className="hidden md:grid max-w-6xl mx-auto px-6 h-28"
+        style={{ gridTemplateColumns: "1fr auto 1fr" }}
+      >
         {/* LEFT LINKS */}
         <nav className="flex items-center justify-end gap-8" data-testid="nav-left">
           {leftLinks.map((link) =>
@@ -65,7 +72,9 @@ export function Navbar() {
                   style={{ color: isHowItWorksActive ? ORANGE : "rgba(255,255,255,0.75)" }}
                 >
                   {link.label}
-                  <ChevronDown className={`w-3.5 h-3.5 transition-transform ${dropdownOpen ? "rotate-180" : ""}`} />
+                  <ChevronDown
+                    className={`w-3.5 h-3.5 transition-transform ${dropdownOpen ? "rotate-180" : ""}`}
+                  />
                 </button>
                 {dropdownOpen && (
                   <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 bg-black border border-white/10 rounded-lg shadow-xl py-2 w-48 z-50">
@@ -99,7 +108,7 @@ export function Navbar() {
               >
                 {link.label}
               </Link>
-            )
+            ),
           )}
         </nav>
 
@@ -151,7 +160,10 @@ export function Navbar() {
       </div>
 
       {open && (
-        <div className="md:hidden border-t-2 border-white/10 px-6 py-4 flex flex-col gap-1 bg-black" data-testid="nav-mobile">
+        <div
+          className="md:hidden border-t-2 border-white/10 px-6 py-4 flex flex-col gap-1 bg-black"
+          data-testid="nav-mobile"
+        >
           {allLinks.map((link) => (
             <Link
               key={link.href}

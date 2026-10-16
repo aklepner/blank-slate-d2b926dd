@@ -1,6 +1,21 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
-import { CheckCircle2, ArrowRight, Star, ChevronDown, ChevronUp, Shield, Zap, BarChart3, Package, Network, Lightbulb, HeartHandshake, Award, Target } from "lucide-react";
+import {
+  CheckCircle2,
+  ArrowRight,
+  Star,
+  ChevronDown,
+  ChevronUp,
+  Shield,
+  Zap,
+  BarChart3,
+  Package,
+  Network,
+  Lightbulb,
+  HeartHandshake,
+  Award,
+  Target,
+} from "lucide-react";
 import { useState } from "react";
 import { Navbar } from "@/components/dso/Navbar";
 import { Footer } from "@/components/dso/Footer";
@@ -11,9 +26,20 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "DSO Pricing — Group Purchasing Power for Dental Practices" },
-      { name: "description", content: "Leverage DSO-level pricing, lower overhead, and access premier dental supplier networks without selling your practice." },
-      { property: "og:title", content: "DSO Pricing — Group Purchasing Power for Dental Practices" },
-      { property: "og:description", content: "Leverage DSO-level pricing, lower overhead, and access premier dental supplier networks without selling your practice." },
+      {
+        name: "description",
+        content:
+          "Leverage DSO-level pricing, lower overhead, and access premier dental supplier networks without selling your practice.",
+      },
+      {
+        property: "og:title",
+        content: "DSO Pricing — Group Purchasing Power for Dental Practices",
+      },
+      {
+        property: "og:description",
+        content:
+          "Leverage DSO-level pricing, lower overhead, and access premier dental supplier networks without selling your practice.",
+      },
     ],
   }),
   component: Index,
@@ -86,9 +112,17 @@ function FAQItem({ q, a }: { q: string; a: string }) {
         className="w-full text-left px-6 py-5 flex items-center justify-between font-bold text-white hover:text-white/90 transition-colors"
       >
         <span>{q}</span>
-        {open ? <ChevronUp className="w-5 h-5 shrink-0 text-white/50" /> : <ChevronDown className="w-5 h-5 shrink-0 text-white/50" />}
+        {open ? (
+          <ChevronUp className="w-5 h-5 shrink-0 text-white/50" />
+        ) : (
+          <ChevronDown className="w-5 h-5 shrink-0 text-white/50" />
+        )}
       </button>
-      {open && <div className="px-6 pb-5 text-white/70 text-sm leading-relaxed border-t border-white/5 pt-3">{a}</div>}
+      {open && (
+        <div className="px-6 pb-5 text-white/70 text-sm leading-relaxed border-t border-white/5 pt-3">
+          {a}
+        </div>
+      )}
     </div>
   );
 }
@@ -97,32 +131,53 @@ function Index() {
   const orderUrl = useOrderUrl();
 
   return (
-    <div className="min-h-screen text-white flex flex-col font-sans" style={{ backgroundColor: NAVY2 }}>
+    <div
+      className="min-h-screen text-white flex flex-col font-sans"
+      style={{ backgroundColor: NAVY2 }}
+    >
       <Navbar />
 
       {/* HERO SECTION */}
-      <section className="relative pt-36 pb-20 px-6 overflow-hidden border-b border-white/10" style={{ backgroundColor: NAVY }}>
+      <section
+        className="relative pt-36 pb-20 px-6 overflow-hidden border-b border-white/10"
+        style={{ backgroundColor: NAVY }}
+      >
         <div className="max-w-6xl mx-auto relative z-10 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 mb-8">
             <StarRating count={5} size={14} />
-            <span className="text-xs font-black uppercase tracking-wider text-white/80">Group Purchasing Power for Independent Dentistry</span>
+            <span className="text-xs font-black uppercase tracking-wider text-white/80">
+              Group Purchasing Power for Independent Dentistry
+            </span>
           </div>
 
           <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tight leading-none mb-6">
-            Get <span style={{ color: ORANGE }}>DSO Pricing</span><br />Without Selling Out
+            Get <span style={{ color: ORANGE }}>DSO Pricing</span>
+            <br />
+            Without Selling Out
           </h1>
 
           <p className="text-lg md:text-xl text-white/75 max-w-3xl mx-auto mb-10 leading-relaxed font-medium">
-            Join hundreds of independent dental practice owners who save tens of thousands annually on dental supplies, labs, equipment, and practice services.
+            Join hundreds of independent dental practice owners who save tens of thousands annually
+            on dental supplies, labs, equipment, and practice services.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-            <Button asChild size="lg" className="font-bold text-lg uppercase tracking-wide px-8 h-14 text-white hover:opacity-90 w-full sm:w-auto" style={{ backgroundColor: ORANGE }}>
+            <Button
+              asChild
+              size="lg"
+              className="font-bold text-lg uppercase tracking-wide px-8 h-14 text-white hover:opacity-90 w-full sm:w-auto"
+              style={{ backgroundColor: ORANGE }}
+            >
               <a href={orderUrl} target="_blank" rel="noopener noreferrer">
                 Claim Your Member Rates <ArrowRight className="ml-2 w-5 h-5" />
               </a>
             </Button>
-            <Button asChild variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10 font-bold text-lg uppercase tracking-wide px-8 h-14 w-full sm:w-auto">
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="border-white/20 text-white hover:bg-white/10 font-bold text-lg uppercase tracking-wide px-8 h-14 w-full sm:w-auto"
+            >
               <Link to="/calculator">Calculate Your Savings</Link>
             </Button>
           </div>
@@ -131,8 +186,15 @@ function Index() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-10 border-t border-white/10">
             {stats.map((s, i) => (
               <div key={i} className="p-4 text-center">
-                <p className="text-3xl md:text-4xl font-black text-white mb-2" style={{ color: ORANGE }}>{s.value}</p>
-                <p className="text-xs font-bold uppercase tracking-wider text-white/60">{s.label}</p>
+                <p
+                  className="text-3xl md:text-4xl font-black text-white mb-2"
+                  style={{ color: ORANGE }}
+                >
+                  {s.value}
+                </p>
+                <p className="text-xs font-bold uppercase tracking-wider text-white/60">
+                  {s.label}
+                </p>
               </div>
             ))}
           </div>
@@ -146,14 +208,27 @@ function Index() {
       <section className="py-20 px-6 border-b border-white/10" style={{ backgroundColor: NAVY2 }}>
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <p className="text-sm font-black uppercase tracking-widest mb-3" style={{ color: ORANGE }}>The Advantage</p>
-            <h2 className="text-4xl md:text-5xl font-black uppercase">Why Independent Practices Choose Us</h2>
+            <p
+              className="text-sm font-black uppercase tracking-widest mb-3"
+              style={{ color: ORANGE }}
+            >
+              The Advantage
+            </p>
+            <h2 className="text-4xl md:text-5xl font-black uppercase">
+              Why Independent Practices Choose Us
+            </h2>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {pillars.map((p, i) => (
-              <div key={i} className="p-8 rounded-2xl border border-white/10 bg-white/5 flex flex-col">
-                <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style={{ backgroundColor: ORANGE }}>
+              <div
+                key={i}
+                className="p-8 rounded-2xl border border-white/10 bg-white/5 flex flex-col"
+              >
+                <div
+                  className="w-14 h-14 rounded-xl flex items-center justify-center mb-6"
+                  style={{ backgroundColor: ORANGE }}
+                >
                   {p.icon}
                 </div>
                 <h3 className="text-xl font-bold uppercase mb-3">{p.title}</h3>
@@ -170,9 +245,17 @@ function Index() {
           <h2 className="text-4xl md:text-6xl font-black text-white mb-6 uppercase leading-tight">
             Build A Stronger, More Scalable Dental Business.
           </h2>
-          <p className="text-white/80 text-xl mb-10">On your terms. Independent. Strategic. Leveraged.</p>
-          <Button asChild size="lg" className="bg-white font-bold text-lg uppercase tracking-wide px-10 h-14 text-black hover:bg-white/90">
-            <a href={orderUrl} target="_blank" rel="noopener noreferrer">Sign Up $297/Mo <ArrowRight className="ml-2 w-5 h-5" /></a>
+          <p className="text-white/80 text-xl mb-10">
+            On your terms. Independent. Strategic. Leveraged.
+          </p>
+          <Button
+            asChild
+            size="lg"
+            className="bg-white font-bold text-lg uppercase tracking-wide px-10 h-14 text-black hover:bg-white/90"
+          >
+            <a href={orderUrl} target="_blank" rel="noopener noreferrer">
+              Sign Up $297/Mo <ArrowRight className="ml-2 w-5 h-5" />
+            </a>
           </Button>
         </div>
       </section>
@@ -181,8 +264,15 @@ function Index() {
       <section className="py-20 px-6" style={{ backgroundColor: NAVY }}>
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-14">
-            <p className="text-sm font-black uppercase tracking-widest mb-3" style={{ color: ORANGE }}>Got Questions?</p>
-            <h2 className="text-4xl md:text-5xl font-black text-white uppercase">Frequently Asked Questions</h2>
+            <p
+              className="text-sm font-black uppercase tracking-widest mb-3"
+              style={{ color: ORANGE }}
+            >
+              Got Questions?
+            </p>
+            <h2 className="text-4xl md:text-5xl font-black text-white uppercase">
+              Frequently Asked Questions
+            </h2>
           </div>
           <div className="space-y-4">
             {faqs.map((faq, i) => (

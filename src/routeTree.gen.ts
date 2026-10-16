@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BookingConfirmedRouteImport } from './routes/booking-confirmed'
 import { Route as BuiltDifferentRouteImport } from './routes/built-different'
 import { Route as CalculatorRouteImport } from './routes/calculator'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -24,6 +25,11 @@ import { Route as BuiltDifferentVendorsRouteImport } from './routes/built-differ
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookingConfirmedRoute = BookingConfirmedRouteImport.update({
+  id: '/booking-confirmed',
+  path: '/booking-confirmed',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BuiltDifferentRoute = BuiltDifferentRouteImport.update({
@@ -79,6 +85,7 @@ const BuiltDifferentVendorsRoute = BuiltDifferentVendorsRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/booking-confirmed': typeof BookingConfirmedRoute
   '/built-different': typeof BuiltDifferentRouteWithChildren
   '/calculator': typeof CalculatorRoute
   '/contact': typeof ContactRoute
@@ -92,6 +99,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/booking-confirmed': typeof BookingConfirmedRoute
   '/calculator': typeof CalculatorRoute
   '/contact': typeof ContactRoute
   '/pricing': typeof PricingRoute
@@ -105,6 +113,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/booking-confirmed': typeof BookingConfirmedRoute
   '/built-different': typeof BuiltDifferentRouteWithChildren
   '/calculator': typeof CalculatorRoute
   '/contact': typeof ContactRoute
@@ -120,6 +129,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/booking-confirmed'
     | '/built-different'
     | '/calculator'
     | '/contact'
@@ -133,6 +143,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/booking-confirmed'
     | '/calculator'
     | '/contact'
     | '/pricing'
@@ -145,6 +156,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/booking-confirmed'
     | '/built-different'
     | '/calculator'
     | '/contact'
@@ -159,6 +171,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BookingConfirmedRoute: typeof BookingConfirmedRoute
   BuiltDifferentRoute: typeof BuiltDifferentRouteWithChildren
   CalculatorRoute: typeof CalculatorRoute
   ContactRoute: typeof ContactRoute
@@ -176,6 +189,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/booking-confirmed': {
+      id: '/booking-confirmed'
+      path: '/booking-confirmed'
+      fullPath: '/booking-confirmed'
+      preLoaderRoute: typeof BookingConfirmedRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/built-different': {
@@ -267,6 +287,7 @@ const BuiltDifferentRouteWithChildren = BuiltDifferentRoute._addFileChildren(
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BookingConfirmedRoute: BookingConfirmedRoute,
   BuiltDifferentRoute: BuiltDifferentRouteWithChildren,
   CalculatorRoute: CalculatorRoute,
   ContactRoute: ContactRoute,

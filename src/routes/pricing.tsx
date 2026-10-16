@@ -9,9 +9,17 @@ export const Route = createFileRoute("/pricing")({
   head: () => ({
     meta: [
       { title: "Pricing & Plans — DSO Pricing" },
-      { name: "description", content: "Simple, flat-rate $297/month membership to unlock DSO-level purchasing discounts for your dental practice." },
+      {
+        name: "description",
+        content:
+          "Simple, flat-rate $297/month membership to unlock DSO-level purchasing discounts for your dental practice.",
+      },
       { property: "og:title", content: "Pricing & Plans — DSO Pricing" },
-      { property: "og:description", content: "Simple, flat-rate $297/month membership to unlock DSO-level purchasing discounts for your dental practice." },
+      {
+        property: "og:description",
+        content:
+          "Simple, flat-rate $297/month membership to unlock DSO-level purchasing discounts for your dental practice.",
+      },
     ],
   }),
   component: PricingPage,
@@ -36,10 +44,17 @@ function PricingPage() {
       <Navbar />
 
       <section className="pt-44 pb-20 px-6 max-w-5xl mx-auto w-full text-center">
-        <p className="text-sm font-black uppercase tracking-widest mb-3" style={{ color: ORANGE }}>Transparent Membership</p>
-        <h1 className="text-4xl md:text-6xl font-black uppercase mb-6">One Low Monthly Fee.<br />Unlimited Practice Savings.</h1>
+        <p className="text-sm font-black uppercase tracking-widest mb-3" style={{ color: ORANGE }}>
+          Transparent Membership
+        </p>
+        <h1 className="text-4xl md:text-6xl font-black uppercase mb-6">
+          One Low Monthly Fee.
+          <br />
+          Unlimited Practice Savings.
+        </h1>
         <p className="text-white/70 text-lg max-w-2xl mx-auto mb-16">
-          Most dental practices save more on their very first supply order than the cost of an entire year of membership.
+          Most dental practices save more on their very first supply order than the cost of an
+          entire year of membership.
         </p>
 
         {/* PRICING CARD */}
@@ -48,20 +63,26 @@ function PricingPage() {
             Popular
           </div>
 
-          <p className="text-sm font-black uppercase tracking-widest text-white/60 mb-2">Practice Membership</p>
+          <p className="text-sm font-black uppercase tracking-widest text-white/60 mb-2">
+            Practice Membership
+          </p>
           <div className="flex items-baseline gap-2 mb-6">
             <span className="text-5xl md:text-6xl font-black text-white">$297</span>
             <span className="text-xl text-white/60 font-bold">/ month</span>
           </div>
 
           <p className="text-white/80 text-sm mb-8 leading-relaxed">
-            Full access to our entire GPO vendor roster, master pricing sheets, and member support team for a single dental practice location.
+            Full access to our entire GPO vendor roster, master pricing sheets, and member support
+            team for a single dental practice location.
           </p>
 
           <div className="space-y-4 mb-10">
             {features.map((f, i) => (
               <div key={i} className="flex items-center gap-3">
-                <div className="w-5 h-5 rounded-full flex items-center justify-center shrink-0" style={{ backgroundColor: ORANGE }}>
+                <div
+                  className="w-5 h-5 rounded-full flex items-center justify-center shrink-0"
+                  style={{ backgroundColor: ORANGE }}
+                >
                   <Check className="w-3.5 h-3.5 text-white" />
                 </div>
                 <span className="text-sm font-semibold text-white/90">{f}</span>
@@ -69,13 +90,20 @@ function PricingPage() {
             ))}
           </div>
 
-          <Button asChild size="lg" className="w-full font-black text-lg uppercase tracking-wider h-14 text-white" style={{ backgroundColor: ORANGE }}>
+          <Button
+            asChild
+            size="lg"
+            className="w-full font-black text-lg uppercase tracking-wider h-14 text-white"
+            style={{ backgroundColor: ORANGE }}
+          >
             <a href={orderUrl} target="_blank" rel="noopener noreferrer">
               Join DSO Pricing Now <ArrowRight className="ml-2 w-5 h-5" />
             </a>
           </Button>
 
-          <p className="text-center text-xs text-white/50 mt-4">Cancel anytime. No setup fees or hidden costs.</p>
+          <p className="text-center text-xs text-white/50 mt-4">
+            Cancel anytime. No setup fees or hidden costs.
+          </p>
         </div>
       </section>
 

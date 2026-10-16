@@ -8,9 +8,15 @@ export const Route = createFileRoute("/calculator")({
   head: () => ({
     meta: [
       { title: "Savings Calculator — DSO Pricing" },
-      { name: "description", content: "Calculate your practice's estimated annual savings with DSO Pricing GPO rates." },
+      {
+        name: "description",
+        content: "Calculate your practice's estimated annual savings with DSO Pricing GPO rates.",
+      },
       { property: "og:title", content: "Savings Calculator — DSO Pricing" },
-      { property: "og:description", content: "Calculate your practice's estimated annual savings with DSO Pricing GPO rates." },
+      {
+        property: "og:description",
+        content: "Calculate your practice's estimated annual savings with DSO Pricing GPO rates.",
+      },
     ],
   }),
   component: CalculatorPage,
@@ -31,7 +37,9 @@ function CalculatorPage() {
       <Navbar />
 
       <section className="pt-44 pb-20 px-6 max-w-4xl mx-auto w-full text-center">
-        <p className="text-sm font-black uppercase tracking-widest mb-3" style={{ color: ORANGE }}>Practice Profitability</p>
+        <p className="text-sm font-black uppercase tracking-widest mb-3" style={{ color: ORANGE }}>
+          Practice Profitability
+        </p>
         <h1 className="text-4xl md:text-6xl font-black uppercase mb-6">Estimate Your Savings</h1>
         <p className="text-white/70 text-lg max-w-2xl mx-auto mb-12">
           Adjust your practice's annual spend below to see how much overhead you can save each year.
@@ -69,9 +77,15 @@ function CalculatorPage() {
           </div>
 
           <div className="pt-6 border-t border-white/10 text-center bg-white/5 p-6 rounded-2xl">
-            <p className="text-sm uppercase tracking-widest text-white/60 font-bold mb-1">Estimated Annual Practice Savings</p>
-            <p className="text-5xl font-black text-red-500 mb-2">${totalSavings.toLocaleString()}</p>
-            <p className="text-xs text-white/50">Based on average member savings of 22% on supplies and 15% on lab fees.</p>
+            <p className="text-sm uppercase tracking-widest text-white/60 font-bold mb-1">
+              Estimated Annual Practice Savings
+            </p>
+            <p className="text-5xl font-black text-red-500 mb-2">
+              ${totalSavings.toLocaleString()}
+            </p>
+            <p className="text-xs text-white/50">
+              Based on average member savings of 22% on supplies and 15% on lab fees.
+            </p>
           </div>
         </div>
       </section>

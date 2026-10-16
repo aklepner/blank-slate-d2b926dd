@@ -6,7 +6,11 @@ export const Route = createFileRoute("/built-different/vendors")({
   head: () => ({
     meta: [
       { title: "Vendor Network — DSO Pricing" },
-      { name: "description", content: "Explore our vetted network of premier dental supply, lab, equipment, and service partners." },
+      {
+        name: "description",
+        content:
+          "Explore our vetted network of premier dental supply, lab, equipment, and service partners.",
+      },
     ],
   }),
   component: VendorsPage,
@@ -26,10 +30,13 @@ function VendorsPage() {
     <div className="min-h-screen bg-black text-white flex flex-col font-sans">
       <Navbar />
       <div className="pt-44 pb-20 px-6 max-w-5xl mx-auto w-full">
-        <p className="text-sm font-black uppercase tracking-widest mb-3 text-red-600">Our Network</p>
+        <p className="text-sm font-black uppercase tracking-widest mb-3 text-red-600">
+          Our Network
+        </p>
         <h1 className="text-4xl md:text-6xl font-black uppercase mb-6">Partner Vendors</h1>
         <p className="text-white/70 text-lg mb-12 max-w-2xl">
-          We partner with industry-leading manufacturers and distributors so you keep buying top-quality products at maximum volume discounts.
+          We partner with industry-leading manufacturers and distributors so you keep buying
+          top-quality products at maximum volume discounts.
         </p>
 
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">

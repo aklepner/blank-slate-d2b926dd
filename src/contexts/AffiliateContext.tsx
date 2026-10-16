@@ -10,11 +10,7 @@ export function AffiliateProvider({ children }: { children: ReactNode }) {
     const params = new URLSearchParams(window.location.search);
     affiliateId = params.get("am_id") ?? "";
   }
-  return (
-    <AffiliateContext.Provider value={affiliateId}>
-      {children}
-    </AffiliateContext.Provider>
-  );
+  return <AffiliateContext.Provider value={affiliateId}>{children}</AffiliateContext.Provider>;
 }
 
 export function useOrderUrl(): string {

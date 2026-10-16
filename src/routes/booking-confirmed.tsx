@@ -23,7 +23,8 @@ function BookingConfirmedPage() {
         </div>
         <h1 className="text-4xl font-black uppercase mb-4">You're All Set!</h1>
         <p className="text-white/80 text-lg leading-relaxed mb-6">
-          Your profitability consultation call with a DSO Pricing advisor has been scheduled. A confirmation email and calendar invite have been sent to your inbox.
+          Your profitability consultation call with a DSO Pricing advisor has been scheduled. A
+          confirmation email and calendar invite have been sent to your inbox.
         </p>
       </div>
       <Footer />
