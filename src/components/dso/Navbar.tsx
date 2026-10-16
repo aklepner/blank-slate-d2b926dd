@@ -2,7 +2,8 @@ import { useState, useRef, useEffect } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { Menu, X, ChevronDown } from "lucide-react";
 
-const logo = "/dso-pricing-logo.png";
+const logo =
+  "https://vibe.filesafe.space/1792153353040923508/assets/9dada648-2dec-42df-a24e-0b9fec57b9bd.png";
 const ORANGE = "#DD042A";
 
 const leftLinks = [

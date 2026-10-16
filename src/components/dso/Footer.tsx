@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 
-const logo = "/dso-pricing-logo.png";
+const logo =
+  "https://vibe.filesafe.space/1792153353040923508/assets/9dada648-2dec-42df-a24e-0b9fec57b9bd.png";
 const NAVY = "#000000";
 const ORANGE = "#DD042A";
 
